@@ -1,5 +1,5 @@
-# Use an official Maven image with JDK 17 (using the slim variant)
-FROM maven:3.8.7-openjdk-17-slim
+# Use an official Maven image with JDK 17 using Eclipse Temurin
+FROM maven:3.9.4-eclipse-temurin-17
 
 # Set the working directory in the container
 WORKDIR /app
