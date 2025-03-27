@@ -41,7 +41,9 @@ public class InsuranceController {
     @GetMapping("/download-policy")
     public ResponseEntity<byte[]> downloadPolicy() throws IOException {
         Resource resource = new ClassPathResource("dummy-policy.pdf");
-        byte[] pdfData = Files.readAllBytes(resource.getFile().toPath());
+        byte[] pdfData = resource.getInputStream().readAllBytes();
+
+        //byte[] pdfData = Files.readAllBytes(resource.getFile().toPath());
 
         return ResponseEntity.ok()
                 .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=dummy-policy.pdf")
